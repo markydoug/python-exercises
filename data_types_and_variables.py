@@ -1,3 +1,138 @@
+#Identify the data type of the following values:
+
+type(99.9) # float
+
+type("False") #str
+
+type(False) #bool
+
+type('0') #str
+
+type(0) #int
+
+type(True) #bool
+
+type('True') #str
+
+type([{}]) #list
+
+type({'a': []}) #dict
+
+#What data type would best represent:
+
+#A term or phrase typed into a search box? str
+
+#If a user is logged in? bool
+
+#A discount amount to apply to a user's shopping cart? int
+
+#Whether or not a coupon code is valid? bool
+
+#An email address typed into a registration form? str
+
+#The price of a product? float
+
+#A Matrix? dict
+
+#The email addresses collected from a registration form? list
+
+#Information about applicants to Codeup's data science program? dict
+
+
+#########################################################################
+#For each of the following code blocks, read the expression and predict what 
+#the result of evaluating it would be, then execute the expression in your Python REPL.
+
+'1' + 2 
+#Prediction: error
+#Actual: error
+
+6 % 4
+#Prediction: 2
+#Actual: 2
+
+type(6 % 4)
+#Prediction: int
+#Actual: int
+
+type(type(6 % 4))
+#Prediction: int
+#Actual: type
+
+'3 + 4 is ' + 3 + 4
+#Prediction: Error
+#Actual: Error
+
+0 < 0
+#Prediction: False
+#Actual: False
+
+'False' == False
+#Prediction: False
+#Actual: False
+
+True == 'True'
+#Prediction: False
+#Actual: False
+
+5 >= -5
+#Prediction: True
+#Actual: True
+
+True or "42"
+#Prediction: error
+#Actual: True
+
+6 % 5
+#Prediction: 1
+#Actual: 1
+
+5 < 4 and 1 == 1
+#Prediction: False
+#Actual: False
+
+'codeup' == 'codeup' and 'codeup' == 'Codeup'
+#Prediction: False
+#Actual: False
+
+4 >= 0 and 1 !== '1'
+#Prediction: True
+#Actual: False
+
+6 % 3 == 0
+#Prediction: True
+#Actual: True
+
+5 % 2 != 0
+#Prediction: True
+#Actual: True
+
+[1] + 2
+#Prediction: [3]
+#Actual: error
+
+[1] + [2]
+#Prediction: [1,2]
+#Actual: [1,2]
+
+[1] * 2
+#Prediction: error
+#Actual: [1, 1]
+
+[1] * [2]
+#Prediction: [2, 2]
+#Actual: error
+
+[] + [] == []
+#Prediction: True
+#Actual: True
+
+{} + {}
+#Prediction: error
+#Actual: error
+
+
+
 ######################################################
 ## Write some Python code, that is, variables and operators, 
 ## to describe the following scenarios. Do not worry about the 
@@ -43,12 +178,50 @@ print("You should receive $" + str(sum(this_week_paycheck)))
 
 
 ##A student can be enrolled to a class only if the class is not full and the class schedule does not conflict with her current schedule.
+#Define class data
+max_students = 25
+class_time = '10:00'
 
+#Define specific variables to determine if student can enroll
+students_enrolled = 20
+student_schedule = ['10:00', '12:00', '15:00']
+
+#Check if class is full
+class_not_full = students_enrolled < max_students
+
+#Check if the student's schedule has a conflict
+if class_time in student_schedule:
+  class_no_conflict = False
+else: 
+  class_no_conflict = True
+    
+#Tell us if she can enroll
 can_enroll = class_not_full == True and class_no_conflict == True
-
+if can_enroll == True:
+    print('She can enroll!')
+else:
+    print('She cannot join this class.')
+    
 ##A product offer can be applied only if people buys more than 2 items, and the offer has not expired. Premium members do not need to buy a specific amount of products.
 
+#Customer info
+premium_member = True
+purchased_items = 1
+purchase_date = '2022-09-16'
 
+#Offer info
+offer_expire_date = '2022-09-20'
+
+#Check if offer available
+if (purchased_items > 2 or premium_member == True) and purchase_date < offer_expire_date:
+    offer_available = True
+else: offer_available = False
+
+#Tell the customer the results
+if offer_available == True:
+    print('You have a product offer available!')
+else:
+    print('Thank you for shopping with us.')
 
 ########################################################
 
