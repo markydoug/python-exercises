@@ -95,7 +95,7 @@ True or "42"
 #Prediction: False
 #Actual: False
 
-4 >= 0 and 1 !== '1'
+4 >= 0 and 1 != '1'
 #Prediction: True
 #Actual: False
 
