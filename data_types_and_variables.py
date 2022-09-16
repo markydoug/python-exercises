@@ -24,7 +24,7 @@ type({'a': []}) #dict
 
 #If a user is logged in? bool
 
-#A discount amount to apply to a user's shopping cart? int
+#A discount amount to apply to a user's shopping cart? int/float
 
 #Whether or not a coupon code is valid? bool
 
@@ -32,7 +32,7 @@ type({'a': []}) #dict
 
 #The price of a product? float
 
-#A Matrix? dict
+#A Matrix? list of lists
 
 #The email addresses collected from a registration form? list
 
