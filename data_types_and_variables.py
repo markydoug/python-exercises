@@ -231,13 +231,13 @@ password = 'notastrongpassword'
 ##Create a variable that holds a boolean value for each of the following conditions:
 
 #the password must be at least 5 characters
-len(password) >= 5
+password_at_least_five_characters = len(password) >= 5
 
 #the username must be no more than 20 characters
-len(username) <= 20
+username_no_more_than_twenty_characters = len(username) <= 20
 
 #the password must not be the same as the username
-username != password
+username_not_password = username != password
 
 #bonus neither the username or password can start or end with whitespace
-(username.isspace() == False) and (password.isspace() == False)
+no_white_space = (username.isspace() == False) and (password.isspace() == False)
