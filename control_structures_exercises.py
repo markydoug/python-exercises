@@ -84,16 +84,17 @@ for i in range(1,10):
 pos_num = int(input("Please enter a postitive integer: "))
 
 if pos_num <=0:
-  print("Please enter a positive number!!!")
+  print("Not a positive number!!!")
 else:
   while pos_num > 0:
+    print(pos_num)
     pos_num -= 1
 
 #Prompt the user to enter a positive number and write a loop that counts from 0 to that number. (Hints: first make sure that the value the user entered is a valid number, also note that the input function returns a string, so you'll need to convert this to a numeric type.)
 pos_num = int(input("Please enter a postitive integer: "))
 
 if pos_num <=0:
-  print("Please enter a positive number!!!")
+  print("Not a positive number!!!")
 else:
   for n in range(pos_num+1):
     print(n)
@@ -109,13 +110,12 @@ while True:
 
 skip_num = int(num)
 test = 0
-for test in range(51):
+for test in range(1,51):
   if test == skip_num:
     print(f'Yikes! Skipping number: {test}')
-  elif test % 2 == 0:
-    continue
-  print(f'Here is an odd number: {test}')
-
+  elif test % 2 != 0:
+    print(f'Here is an odd number: {test}')
+  continue
 
 ## 3.Fizzbuzz
 #Write a program that prints the numbers from 1 to 100.
@@ -147,7 +147,7 @@ for i in range(1,101):
 
 ## 4.Display a table of powers.
 #Prompt the user to enter an integer.
-number = int(input("How high do you want to go? "))
+number = int(input("What number would you like to go up to? "))
 
 #Display a table of squares and cubes from 1 to the value entered.
 for i in range(1, number + 1):
@@ -157,23 +157,34 @@ for i in range(1, number + 1):
 #Only continue if the user agrees to.
 
 #All together
-while True:
-  number = int(input("What number would you like to go up to? "))
-  for i in range(1, number + 1):
-    print(i, i**2, i**3)
-  next = input("Continue? (y/n) ")
-  if next.lower() == 'y':
-    number = int(input("Please enter an integer: "))
+going = True
+
+while going:
+    number = int(input("What number would you like to go up to? "))
+    print("Here is your table!")
     for i in range(1, number + 1):
-      print(i, i**2, i**3)
+        print(i, i**2, i**3)
     next = input("Continue? (y/n) ")
-    continue
-  else:
-    break
-  break
+    if next.lower() == 'y':
+        continue
+    else:
+        going = False
 
 #Bonus: Research python's format string specifiers to align the table
+going = True
 
+while going:
+  number = int(input("What number would you like to go up to? "))
+  print("\nHere is your table! \n")
+  print("{:<8} | {:<8} | {:<8}".format('number','squared','cubed'))
+  print("{:<8} | {:<8} | {:<8}".format('------','------','------'))
+  for i in range(1, number + 1):
+    print("{:<8} | {:<8} | {:<8}".format(i, i**2, i**3))
+  next = input("\nContinue? (y/n) ")
+  if next.lower() == 'y':
+    continue
+  else:
+    going = False
 
 ##5. Convert given number grades into letter grades.
 #Prompt the user for a numerical grade from 0 to 100.
@@ -223,7 +234,7 @@ books = [{
     {
     'title': 'Has China Won?',
     'author': 'Kishore Mahbubani',
-    'genre': 'internationl relations'
+    'genre': 'international relations'
 },
     {
     'title': 'The Culture Code',
