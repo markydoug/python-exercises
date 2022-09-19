@@ -101,53 +101,152 @@ else:
       break
 
 #Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
-pos_num = int(input("Please enter a postitive integer: "))
+while True:
+  num = input("Number to skip is: ")
+  if num.isdigit() == True and ((int(num) >=1 and int(num) <= 50) and int(num) % 2 != 0): 
+    break 
+  print("Please enter an odd number betweeen 1 and 50!!!")
 
-if pos_num <=0:
-  print("Please enter a positive number!!!")
-else:
-  while pos_num > 0:
-    print(pos_num)
-    pos_num -= 1
+skip_num = int(num)
+test = 0
+for test in range(51):
+  if test == skip_num:
+    print(f'Yikes! Skipping number: {test}')
+  elif test % 2 == 0:
+    continue
+  print(f'Here is an odd number: {test}')
+
 
 ## 3.Fizzbuzz
 #Write a program that prints the numbers from 1 to 100.
+for i in range(1,101):
+  print(i)
 
 #For multiples of three print "Fizz" instead of the number
+if i % 3 == 0:
+    print("Fizz")
 
 #For the multiples of five print "Buzz".
+if i % 5 == 0:
+    print("Buzz")
 
 #For numbers which are multiples of both three and five print "FizzBuzz".
+if i % 15 == 0:
+    print("FizzBuzz")
 
+#All together
+for i in range(1,101):
+  if i % 15 == 0:
+    print("FizzBuzz")
+  elif i % 5 == 0:
+    print("Buzz")
+  elif i % 3 == 0:
+    print("Fizz")
+  else:
+    print(i)
 
 ## 4.Display a table of powers.
 #Prompt the user to enter an integer.
+number = int(input("How high do you want to go? "))
 
 #Display a table of squares and cubes from 1 to the value entered.
-
+for i in range(1, number + 1):
+  print(i, i**2, i**3)
 #Ask if the user wants to continue.
-
 #Assume that the user will enter valid data.
-
 #Only continue if the user agrees to.
+
+#All together
+while True:
+  number = int(input("What number would you like to go up to? "))
+  for i in range(1, number + 1):
+    print(i, i**2, i**3)
+  next = input("Continue? (y/n) ")
+  if next.lower() == 'y':
+    number = int(input("Please enter an integer: "))
+    for i in range(1, number + 1):
+      print(i, i**2, i**3)
+    next = input("Continue? (y/n) ")
+    continue
+  else:
+    break
+  break
 
 #Bonus: Research python's format string specifiers to align the table
 
 
 ##5. Convert given number grades into letter grades.
-
 #Prompt the user for a numerical grade from 0 to 100.
+num_grade = int(input("Please enter the grade: "))
 
 #Display the corresponding letter grade.
-
 #Prompt the user to continue.
-
 #Assume that the user will enter valid integers for the grades.
-
 #The application should only continue if the user agrees to.
+keep_on = True
+while keep_on:
+  num_grade = int(input("Please enter the grade (0-100): "))
+  if num_grade < 60:
+    print("F")
+  elif num_grade < 67:
+    print("D")
+  elif num_grade < 80:
+    print("C")
+  elif num_grade < 88:
+    print("B")
+  else:
+    print("A")
+  next = input("Continue? (y/n) ")
+  if next.lower() == 'y':
+    continue
+  else:
+    keep_on = False
 
 #Bonus: Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
 
 ## 6.Create a list of dictionaries where each dictionary represents a book that you have read. Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out information about each book.
+books = [{
+    'title': 'Naked Statistics',
+    'author': 'Charles Wheelan',
+    'genre': 'social sciences',
+},
+    {
+    'title': 'Leadership',
+    'author': 'Henry Kissinger',
+    'genre': 'international relations',
+},
+    {
+    'title': 'Atomic Habits',
+    'author': 'James Clear',
+    'genre': 'self-help'
+},
+    {
+    'title': 'Has China Won?',
+    'author': 'Kishore Mahbubani',
+    'genre': 'internationl relations'
+},
+    {
+    'title': 'The Culture Code',
+    'author': 'Daniel Coyle',
+    'genre': 'management'
+}]
+
 
 #Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+keep_on = True
+while keep_on:
+  books_found = 0
+  genre = input("Please enter a genre: ").lower() 
+  for book in books:
+    if genre == book["genre"]:
+      print(book["title"])
+      books_found += 1
+
+  if books_found == 0:
+    print("No books found.")
+  
+  next = next = input("Want to try another genre? (y/n) ")
+  if next.lower() == 'y':
+      continue
+  else:
+      keep_on = False
