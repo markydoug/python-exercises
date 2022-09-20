@@ -1,14 +1,14 @@
 ## 1.Conditional Basics
 #a. prompt the user for a day of the week, print out whether the day is Monday or not
-day = input("What day?")
-if day.lower() == 'monday':
+day = input("Please enter a day of the week: ")
+if day.lower() in ('monday', 'mon', 'm'):
   print("It's Monday!")
 else:
   print("It's  not Monday.")
 
 #b. prompt the user for a day of the week, print out whether the day is a weekday or a weekend
-day = input("What day?")
-if day.lower() in ('saturday', 'sunday'):
+day = input("Please enter a day of the week: ")
+if day.lower() in ('saturday', 'sunday', 'sat', 'sun'):
   print("It's the weekend!")
 else:
   print("It's not the weekend.")
@@ -24,10 +24,13 @@ hourly_rate = 8.75
 paycheck_this_week = hours_worked_in_one_week * hourly_rate
 
 #write the python code that calculates the weekly paycheck. You get paid time and a half if you work more than 40 hours
-if hours_worked_in_one_week > 40:
-    paycheck_this_week = hours_worked_in_one_week * hourly_rate * 1.5
-else:
-    paycheck_this_week = hours_worked_in_one_week * hourly_rate
+if hours_worked_in_one_week <= 40:
+    paycheck_this_week = hours_worked_in_one_week * hourly_rate 
+elif hours_worked_in_one_week > 40:
+    ot_hours = (hours_worked_in_one_week - 40)
+    ot_rate = (hourly_rate * 1.5)
+    paycheck_this_week = (40 * hourly_rate) + (ot_hours * ot_rate)
+
 print("Your paycheck should be: $" + str(round(paycheck_this_week,2)))
 
 ## 2.Loop Basics
@@ -101,6 +104,17 @@ else:
     if n > pos_num:
       break
 
+##More precise
+while True:
+  pos_num = input("Please enter a postitive integer: ")
+
+  if pos_num.isdigit() == True: # checking if it is a digit
+    if int(pos_num) > 0: #checking if it is a positive number
+      print("This is a positive number!")
+      break
+for n in range(pos_num+1):
+    print(n)
+
 #Prompt the user for an odd number between 1 and 50. Use a loop and a break statement to continue prompting the user if they enter invalid input. (Hint: use the isdigit method on strings to determine this). Use a loop and the continue statement to output all the odd numbers between 1 and 50, except for the number the user entered.
 while True:
   num = input("Number to skip is: ")
@@ -115,7 +129,6 @@ for test in range(1,51):
     print(f'Yikes! Skipping number: {test}')
   elif test % 2 != 0:
     print(f'Here is an odd number: {test}')
-  continue
 
 ## 3.Fizzbuzz
 #Write a program that prints the numbers from 1 to 100.
@@ -138,9 +151,9 @@ if i % 15 == 0:
 for i in range(1,101):
   if i % 15 == 0:
     print("FizzBuzz")
-  elif i % 5 == 0:
-    print("Buzz")
   elif i % 3 == 0:
+    print("Buzz")
+  elif i % 5 == 0:
     print("Fizz")
   else:
     print(i)
@@ -157,23 +170,19 @@ for i in range(1, number + 1):
 #Only continue if the user agrees to.
 
 #All together
-going = True
-
-while going:
+while True:
     number = int(input("What number would you like to go up to? "))
     print("Here is your table!")
     for i in range(1, number + 1):
         print(i, i**2, i**3)
     next = input("Continue? (y/n) ")
-    if next.lower() == 'y':
-        continue
-    else:
-        going = False
+    if next.lower() != 'y': #if next.lower() == 'y':
+       break #continue
+    #else:
+        #break
 
 #Bonus: Research python's format string specifiers to align the table
-going = True
-
-while going:
+while True:
   number = int(input("What number would you like to go up to? "))
   print("\nHere is your table! \n")
   print("{:<8} | {:<8} | {:<8}".format('number','squared','cubed'))
@@ -181,10 +190,9 @@ while going:
   for i in range(1, number + 1):
     print("{:<8} | {:<8} | {:<8}".format(i, i**2, i**3))
   next = input("\nContinue? (y/n) ")
-  if next.lower() == 'y':
-    continue
-  else:
-    going = False
+  if next.lower() != 'y':
+    break
+
 
 ##5. Convert given number grades into letter grades.
 #Prompt the user for a numerical grade from 0 to 100.
