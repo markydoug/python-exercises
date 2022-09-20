@@ -78,20 +78,20 @@ def remove_vowels(words):
 #    First Name will become first_name
 #    % Completed will become completed
 def normalize_name(word):
-  #make the word all lowercase
-  word = word.lower()
-  #take out any leading or tailing space
-  word = word.strip()
-  #replace any spaces with _
-  word = word.replace(" ", "_")
-  #check if there are any special characters
-  for ch in ['*','{','}','[',']','(',')','>','#','+','-','.','!','$','\'','@','%']:
+     #check if there are any special characters
+    for ch in ['*','{','}','[',']','(',')','>','#','+','-','.','!','$','\'','@','%']:
         #if there is a special character
         if ch in word:
             #replace the special character with nothing
-            word = word.replace(ch,"")
-  #return the string as a valid identifier
-  return word
+            word = word.replace(ch,"") 
+    #take out any leading or tailing space
+    word = word.strip()
+    #replace any spaces with _
+    word = word.replace(" ", "_")
+    #make the word all lowercase
+    word = word.lower()
+    #return the string as a valid identifier
+    return word
 
 # 11. Write a function named cumulative_sum that accepts a list of numbers 
 # and returns a list that is the cumulative sum of the numbers in the list.
@@ -111,3 +111,16 @@ def cumulative_sum(my_list):
     new_list.append(x)
   #return the list of new numbers
   return new_list
+
+
+  ######################BONUS########################
+
+# 1. Create a function named twelveto24. It should accept a string in the format 10:45am 
+# or 4:30pm and return a string that is the representation of the time in a 24-hour format. 
+
+
+# Bonus write a function that does the opposite.
+
+
+# 2.Create a function named col_index. It should accept a spreadsheet column name, and return 
+# the index number of the column.
