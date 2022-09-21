@@ -133,6 +133,10 @@ def cumulative_sum(my_list):
   return new_list
 
 
+
+def money_to_number(dollars):
+  return float(dollars.replace("$", "").replace(",", ""))
+
   ######################BONUS########################
 
 # 1. Create a function named twelveto24. It should accept a string in the format 10:45am 
@@ -144,3 +148,6 @@ def cumulative_sum(my_list):
 
 # 2.Create a function named col_index. It should accept a spreadsheet column name, and return 
 # the index number of the column.
+
+
+  
