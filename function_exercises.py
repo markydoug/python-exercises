@@ -9,12 +9,32 @@ def is_two(n):
     return n in (2, '2')
 
 # 2. Define a function named is_vowel. It should return True if the passed string is a vowel, False otherwise.
+#def is_vowel(n):
+#  return n.lower() in ("a", "e", "i", "o", "u")
+
+#Checks more 
 def is_vowel(n):
-  return n.lower() in ("a", "e", "i", "o", "u")
+  if type(n) == str:
+    if len(n) == 1 and n.isalpha():
+      return n.lower() in list('aeiou')
+    else:
+      return False
+  else:
+    return False 
 
 # 3. Define a function named is_consonant. It should return True if the passed string is a consonant, False otherwise. Use your is_vowel function to accomplish this.
+#def is_consonant(n):
+#  return n.lower() not in ("a", "e", "i", "o", "u")
+
+#checks more
 def is_consonant(n):
-  return n.lower() not in ("a", "e", "i", "o", "u")
+  if type(n) == str:
+    if len(n) == 1 and n.isalpha():
+      return n.lower() not in list('aeiou')
+    else:
+      return False
+  else:
+    return False 
 
 # 4. Define a function that accepts a string that is a word. The function should capitalize the first letter of the word if the word starts with a consonant.
 def capitalize_if_consonant(n):
